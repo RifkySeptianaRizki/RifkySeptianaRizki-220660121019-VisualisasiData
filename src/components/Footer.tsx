@@ -134,8 +134,22 @@ const Footer: React.FC<FooterProps> = ({
 
           {/* catatan */}
           <div className="relative z-[1] mt-6 border-t border-white/10 pt-3 text-center text-[11px] text-white/55">
-            © {new Date().getFullYear()} Rifky Septiana Rizki — Semua hak cipta
-            dilindungi.
+            © {new Date().getFullYear()}{" "}
+            <span className="font-medium">Created by </span>
+            <span className="font-bold">Rifky Septiana Rizki</span> •
+            <span className="mx-1 font-bold">220660121019</span> —
+            <span className="mx-1">Open Source (MIT)</span> • Kode sumber{" "}
+            <a
+              href="https://github.com/RifkySeptianaRizki"
+              target="_blank"
+              rel="noreferrer"
+              className="underline decoration-white/30 underline-offset-2 hover:text-white hover:decoration-white"
+            >
+              GitHub
+            </a>
+            <span className="block mt-1">
+              Support by <span className="font-bold">Resilient Academia</span>
+            </span>
           </div>
         </section>
       </div>

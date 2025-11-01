@@ -23,7 +23,7 @@ type ColumnKey =
 const COL_WIDTHS = [
   "w-[110px]", // tanggal
   "w-[132px]", // kategori
-  "min-w-[230px] xl:min-w-[300px]", // jenis insiden (lebar besar)
+  "min-w-[230px] xl:min-w-[300px]", // jenis insiden
   "w-[168px]", // sektor
   "w-[148px]", // provinsi
   "w-[92px]", // severity
@@ -341,7 +341,7 @@ const DataTable: React.FC<Props> = ({ rows, initialPageSize = 10 }) => {
 
                     {/* Jenis insiden: satu baris, truncate, tooltip untuk full text */}
                     <td
-                      className="px-3 py-2 text-white/90 whitespace-nowrap truncate"
+                      className="px-3 py-2 pb-3 text-white/90 whitespace-nowrap truncate"
                       title={jenis}
                     >
                       {jenis}
