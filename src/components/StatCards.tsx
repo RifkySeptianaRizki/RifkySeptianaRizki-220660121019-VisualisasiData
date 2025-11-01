@@ -5,14 +5,13 @@ import type { Row } from "../lib/types";
 
 type StatCardsProps = {
   rows: Row[];
-  /** ukuran dataset asli (sebelum filter), untuk info cakupan */
   rawTotal: number;
 };
 
 /* ---------- helpers ---------- */
-const clamp01 = (n: number) => (Number.isFinite(n) ? Math.max(0, Math.min(1, n)) : 0);
+const clamp01 = (n: number) =>
+  Number.isFinite(n) ? Math.max(0, Math.min(1, n)) : 0;
 
-// normalisasi kategori untuk membedakan "Kekerasan seksual" vs "Non-seksual"
 const norm = (s?: string) =>
   (s ?? "")
     .toString()
@@ -28,26 +27,71 @@ const isSexual = (cat?: string) => {
   return k === "kekerasan seksual" || k === "seksual";
 };
 
-const glassIconWrap =
-  "grid place-items-center h-9 w-9 rounded-2xl bg-white/7 border border-white/15 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)]";
+const IconWrap: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <span
+    className={[
+      "relative grid h-10 w-10 place-items-center rounded-3xl",
+      "border border-white/20 bg-white/10 backdrop-blur",
+      "shadow-[inset_0_1px_0_rgba(255,255,255,.35),0_6px_20px_rgba(0,0,0,.25)]",
+      "overflow-hidden",
+    ].join(" ")}
+    aria-hidden="true"
+  >
+    {/* glare ring */}
+    <span className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-white/25" />
+    {/* soft inner gradient */}
+    <span className="pointer-events-none absolute inset-0 rounded-3xl [background:radial-gradient(120%_80%_at_0%_0%,rgba(255,255,255,.12),transparent_55%)]" />
+    <span className="relative z-[1]">{children}</span>
+  </span>
+);
 
 const valueGradient =
   "bg-[linear-gradient(180deg,rgba(255,255,255,.98),rgba(255,255,255,.72))] bg-clip-text text-transparent drop-shadow-[0_0_18px_rgba(138,180,255,.15)]";
 
+const Track: React.FC<{
+  progress: number;
+  className?: string;
+  label: string;
+}> = ({ progress, className = "", label }) => {
+  const pct = Math.round(clamp01(progress) * 100);
+  return (
+    <div className="mt-3">
+      <div
+        className="h-2 w-full overflow-hidden rounded-full border border-white/10 bg-white/8"
+        role="progressbar"
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-valuenow={pct}
+        aria-label={`${label} progress`}
+        title={`${pct}%`}
+      >
+        <div
+          className={[
+            "h-full rounded-full transition-[width] duration-500",
+            "bg-gradient-to-r",
+            className,
+            // inner glow
+            "shadow-[0_0_0_1px_rgba(255,255,255,.06),inset_0_1px_2px_rgba(255,255,255,.25)]",
+          ].join(" ")}
+          style={{ width: `${pct}%` }}
+        />
+      </div>
+      <div className="mt-1 flex items-center justify-between text-[11px] text-white/55">
+        <span>{label === "Total Insiden" ? "Cakupan filter" : "Progress"}</span>
+        <span className="tabular-nums">{pct}%</span>
+      </div>
+    </div>
+  );
+};
+
 /* ---------- component ---------- */
 const StatCards: React.FC<StatCardsProps> = ({ rows, rawTotal }) => {
   const total = rows.length;
-
   const completed = rows.filter(
-    (row) => norm(row.status_kasus) === "selesai"
+    (r) => norm(r.status_kasus) === "selesai"
   ).length;
-
-  const sexual = rows.filter((row) => isSexual(row.kategori_besar)).length;
-
-  const avgResponse = avg(rows.map((row) => row.waktu_respon_jam));
-
-  const completionPctStr = total ? fmtPct(completed, total) : "0%";
-  const sexualPctStr = total ? fmtPct(sexual, total) : "0%";
+  const sexual = rows.filter((r) => isSexual(r.kategori_besar)).length;
+  const avgResponse = avg(rows.map((r) => r.waktu_respon_jam));
 
   const completionPct = clamp01(total ? completed / total : 0);
   const sexualPct = clamp01(total ? sexual / total : 0);
@@ -58,90 +102,111 @@ const StatCards: React.FC<StatCardsProps> = ({ rows, rawTotal }) => {
       key: "total",
       label: "Total Insiden",
       value: fmtInt(total),
-      sub: rawTotal ? `Dari ${fmtInt(rawTotal)} entri dataset` : "Dataset terfilter",
+      sub: rawTotal
+        ? `Dari ${fmtInt(rawTotal)} entri dataset`
+        : "Dataset terfilter",
       icon: ShieldHalf,
       iconClass: "text-[color:var(--primary)]",
-      // progress: cakupan filter vs total dataset
       progress: coveragePct,
-      progressLabel: `${fmtInt(total)} / ${fmtInt(rawTotal || total)}`,
-      barClass: "from-[rgba(138,180,255,.55)] to-[rgba(138,180,255,.25)]",
+      barClass: "from-[rgba(138,180,255,.65)] to-[rgba(138,180,255,.28)]",
     },
     {
       key: "done",
       label: "Kasus Selesai",
       value: fmtInt(completed),
-      sub: total ? `${completionPctStr} selesai` : "Belum ada data",
+      sub: total ? `${fmtPct(completed, total)} selesai` : "Belum ada data",
       icon: CheckCircle2,
       iconClass: "text-emerald-300",
       progress: completionPct,
-      progressLabel: completionPctStr,
-      barClass: "from-[rgba(16,185,129,.55)] to-[rgba(16,185,129,.25)]",
+      barClass: "from-[rgba(16,185,129,.6)] to-[rgba(16,185,129,.28)]",
     },
     {
       key: "sexual",
       label: "Proporsi Kekerasan Seksual",
-      value: sexualPctStr,
-      sub: total ? `${fmtInt(sexual)} insiden berjenis seksual` : "Belum ada data",
+      value: total ? fmtPct(sexual, total) : "0%",
+      sub: total
+        ? `${fmtInt(sexual)} insiden berjenis seksual`
+        : "Belum ada data",
       icon: AlertTriangle,
       iconClass: "text-rose-300",
       progress: sexualPct,
-      progressLabel: sexualPctStr,
-      barClass: "from-[rgba(255,138,216,.55)] to-[rgba(255,138,216,.25)]",
+      barClass: "from-[rgba(255,138,216,.6)] to-[rgba(255,138,216,.28)]",
     },
     {
       key: "response",
       label: "Rata-rata Waktu Respon",
-      value: avgResponse !== null ? `${avgResponse.toFixed(1)} jam` : "Tidak tersedia",
+      value:
+        avgResponse !== null
+          ? `${avgResponse.toFixed(1)} jam`
+          : "Tidak tersedia",
       sub: "Berdasarkan entri dengan waktu respon",
       icon: Clock3,
       iconClass: "text-amber-300",
-      progress: avgResponse !== null ? clamp01(avgResponse / 48) : 0, // skala kasar 0–48 jam
-      progressLabel: avgResponse !== null ? `${avgResponse.toFixed(1)} jam` : "—",
-      barClass: "from-[rgba(251,191,36,.55)] to-[rgba(251,191,36,.25)]",
+      progress: avgResponse !== null ? clamp01(avgResponse / 48) : 0,
+      barClass: "from-[rgba(251,191,36,.6)] to-[rgba(251,191,36,.28)]",
     },
-  ];
+  ] as const;
 
   return (
     <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-      {cards.map(({ key, label, value, sub, icon: Icon, iconClass, progress, progressLabel, barClass }) => (
-        <section key={key} className="card glossy-fix p-6 sm:p-5">
-          {/* header */}
-          <div className="flex items-center justify-between gap-3">
-            <p className="text-[11px] uppercase tracking-[0.28em] text-white/50">{label}</p>
-            <div className={`${glassIconWrap}`}>
-              <Icon className={`h-5 w-5 ${iconClass}`} aria-hidden="true" />
+      {cards.map(
+        ({
+          key,
+          label,
+          value,
+          sub,
+          icon: Icon,
+          iconClass,
+          progress,
+          barClass,
+        }) => (
+          <section
+            key={key}
+            className={[
+              "relative rounded-3xl p-5 sm:p-6",
+              "border border-black/20 bg-white/[0.06] backdrop-blur-xl",
+              "shadow-[inset_0_1px_0_rgba(255,255,255,.35),0_14px_44px_rgba(0,0,0,.28)]",
+              "transition-shadow duration-300 hover:shadow-[inset_0_1px_0_rgba(255,255,255,.45),0_20px_64px_rgba(0,0,0,.34)]",
+              "isolate overflow-hidden",
+            ].join(" ")}
+          >
+            {/* glare & vignette */}
+            <span className="pointer-events-none absolute inset-x-6 top-0 h-px bg-white/25 [mask-image:linear-gradient(to_right,transparent,white,transparent)]" />
+            <span className="pointer-events-none absolute inset-0 [background:radial-gradient(120%_80%_at_0%_0%,rgba(255,255,255,.06),transparent_55%)]" />
+
+            {/* header */}
+            <div className="relative z-[1] flex items-center justify-between gap-3">
+              <div>
+                <p className="text-[11px] uppercase tracking-[0.3em] text-white/52">
+                  {label}
+                </p>
+              </div>
+              <IconWrap>
+                <Icon className={`h-5 w-5 ${iconClass}`} aria-hidden="true" />
+              </IconWrap>
             </div>
-          </div>
 
-          {/* value */}
-          <div className="mt-2">
-            <p className={`text-[28px] leading-8 font-semibold ${valueGradient}`}>{value}</p>
-            <p className="mt-1 text-xs text-white/60">{sub}</p>
-          </div>
+            {/* value */}
+            <div className="relative z-[1] mt-2">
+              <p
+                className={`text-[28px] leading-8 font-semibold ${valueGradient}`}
+              >
+                {value}
+              </p>
+              <p className="mt-1 text-xs text-white/60">{sub}</p>
+            </div>
 
-          {/* progress */}
-          <div className="mt-3">
-            <div
-              className="h-2 w-full rounded-full bg-white/8 border border-white/10 overflow-hidden"
-              role="progressbar"
-              aria-valuemin={0}
-              aria-valuemax={100}
-              aria-valuenow={Math.round(progress * 100)}
-              aria-label={`${label} progress`}
-              title={progressLabel}
-            >
-              <div
-                className={`h-full rounded-full bg-gradient-to-r ${barClass} transition-[width] duration-500`}
-                style={{ width: `${Math.round(progress * 100)}%` }}
+            {/* progress */}
+            <div className="relative z-[1]">
+              <Track
+                progress={progress}
+                className={`from-0% to-100% ${barClass}`}
+                label={label}
               />
             </div>
-            <div className="mt-1 flex items-center justify-between text-[11px] text-white/55">
-              <span>{label === "Total Insiden" ? "Cakupan filter" : "Progress"}</span>
-              <span className="tabular-nums">{progressLabel}</span>
-            </div>
-          </div>
-        </section>
-      ))}
+          </section>
+        )
+      )}
     </div>
   );
 };

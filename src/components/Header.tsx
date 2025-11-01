@@ -1,12 +1,13 @@
 // FILE: src/components/Header.tsx
-import { BarChart3, Filter, Sparkles } from "lucide-react";
+import { Filter, Sparkles } from "lucide-react";
 import { fmtInt } from "../lib/number";
 
 type HeaderProps = {
   onOpenFilters: () => void;
   totalVisible: number;
   appliedFilters: number;
-  logoSrc?: string;
+  logoSrc?: string; // path logo (png/svg)
+  logoAlt?: string; // alt text opsional
 };
 
 const Header: React.FC<HeaderProps> = ({
@@ -14,6 +15,7 @@ const Header: React.FC<HeaderProps> = ({
   totalVisible,
   appliedFilters,
   logoSrc,
+  logoAlt = "Logo",
 }) => {
   return (
     <header className="sticky top-3 mb-5 z-50 px-2 sm:px-4 lg:px-6 bg-transparent">
@@ -31,43 +33,57 @@ const Header: React.FC<HeaderProps> = ({
             <div className="absolute inset-x-6 top-0 h-px bg-white/25" />
           </div>
 
-          {/* selalu baris bahkan di mobile → tombol tetap di kanan */}
           <div className="flex items-center justify-between gap-2">
-            {/* kiri: logo + judul */}
+            {/* KIRI: Logo bulat + judul */}
             <div className="flex min-w-0 items-center gap-2.5 sm:gap-3">
-              <span className="grid h-10 w-10 place-items-center rounded-full bg-white/10 border border-white/20 sm:h-10 sm:w-10 overflow-hidden">
+              {/* Avatar/logo: SELALU bulat sempurna */}
+              <span
+                className={[
+                  "relative border border-white/20 bg-white/10",
+                  "rounded-full overflow-hidden aspect-square",
+                  // ukuran responsif (selalu square, tinggal ganti tinggi)
+                  "h-9 w-9 sm:h-10 sm:w-10 md:h-11 md:w-11",
+                  "grid place-items-center",
+                ].join(" ")}
+                aria-hidden="true"
+              >
                 {logoSrc ? (
+                  // object-contain: aman utk logo non-square & ada padding kecil
                   <img
                     src={logoSrc}
-                    alt="Logo"
-                    className="h-10 w-10 sm:h-10 sm:w-10 object-contain drop-shadow"
+                    alt={logoAlt}
+                    className="h-full w-full object-contain p-1.5"
                   />
                 ) : (
-                  // fallback kalau logoSrc belum dikirim
-                  <div className="h-3 w-3 rounded-full bg-[color:var(--primary)] shadow-[0_0_18px_rgba(138,180,255,.85)]" />
+                  // fallback glow titik kalau logo belum diset
+                  <span className="h-3 w-3 rounded-full bg-[color:var(--primary)] shadow-[0_0_18px_rgba(138,180,255,.85)]" />
                 )}
+                {/* ring/glare */}
+                <span className="pointer-events-none absolute inset-0 rounded-full ring-1 ring-white/20" />
               </span>
-              <div className="min-w-0">
-                <h1 className="truncate text-[15px] sm:text-lg font-semibold text-gradient sm:text-xl">
-                  Dashboard Kekerasan Perguruan Tinggi
+
+              <div className="min-w-0 whitespace-nowrap mt-2">
+                <h1 className="inline-block mr-1.5 truncate align-baseline text-[18px] sm:text-xl md:text-xl font-extrabold text-primary">
+                  SIGAP
+                </h1>
+                <h1 className="inline-block truncate align-baseline text-[18px] sm:text-xl md:text-xl font-extrabold text-white">
+                  KAMPUS
                 </h1>
               </div>
             </div>
 
-            {/* kanan: metrik & tombol filter */}
+            {/* KANAN: metrik & tombol Filter */}
             <div className="flex shrink-0 items-center gap-2 sm:gap-3">
-              {/* metrik disembunyikan di mobile */}
               <span
-                className="hidden sm:inline-flex items-center gap-2 rounded-full bg-white/8 px-3 py-1.5 text-xs text-white/80 border border-white/15"
+                className="inline-flex items-center gap-2 rounded-full bg-white/8 px-3 py-1.5 text-xs text-white/80 border border-white/15"
                 title="Jumlah baris terlihat saat ini"
                 aria-label={`Total terlihat: ${fmtInt(totalVisible)}`}
               >
-                <Sparkles className="h-4 w-4 opacity-80" />
+                <Sparkles className="h-4 w-4 opacity-90" />
                 <span className="tabular-nums">{fmtInt(totalVisible)}</span>
-                <span className="opacity-60">terlihat</span>
+                <span className="opacity-80 text-white">terlihat</span>
               </span>
 
-              {/* tombol Filter: label SELALU tampil, lebih kecil di mobile */}
               <button
                 type="button"
                 onClick={onOpenFilters}
@@ -77,7 +93,6 @@ const Header: React.FC<HeaderProps> = ({
               >
                 <Filter className="h-4 w-4" />
                 <span className="ml-1 text-[12px] sm:text-[13px]">Filter</span>
-
                 {appliedFilters > 0 && (
                   <span
                     className={[

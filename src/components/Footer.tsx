@@ -6,10 +6,10 @@ type FooterLink = { label: string; href: string };
 type FooterProps = {
   totalAll: number;
   totalVisible: number;
-  lastUpdated?: string; // YYYY-MM-DD (opsional)
-  logoSrc?: string; // path logo custom (svg/png)
-  brand?: string; // nama brand di footer
-  links?: FooterLink[]; // tautan kanan
+  lastUpdated?: string; // YYYY-MM-DD
+  logoSrc?: string; // path logo (svg/png)
+  brand?: string;
+  links?: FooterLink[];
 };
 
 const Footer: React.FC<FooterProps> = ({
@@ -17,7 +17,7 @@ const Footer: React.FC<FooterProps> = ({
   totalVisible,
   lastUpdated,
   logoSrc,
-  brand = "Dashboard Kekerasan Perguruan Tinggi",
+  brand = "Sistem Informasi & Grafik Anti-Kekerasan",
   links = [
     {
       label: "Sumber Data",
@@ -28,7 +28,6 @@ const Footer: React.FC<FooterProps> = ({
   return (
     <footer className="px-3 pb-12 pt-3 sm:px-4 lg:px-6">
       <div className="mx-auto max-w-7xl">
-        {/* Capsule utama: liquid glass */}
         <section
           className={[
             "relative rounded-[28px] glass-panel glossy",
@@ -40,33 +39,33 @@ const Footer: React.FC<FooterProps> = ({
           ].join(" ")}
           aria-labelledby="footer-brand"
         >
-          {/* Glare tipis di atas + soft vignette */}
+          {/* glare & vignette */}
           <div className="pointer-events-none absolute inset-0 rounded-[28px]">
             <div className="absolute inset-x-8 top-0 h-px bg-white/25 [mask-image:linear-gradient(to_right,transparent,white,transparent)]" />
             <div className="absolute inset-0 rounded-[28px] [background:radial-gradient(120%_80%_at_0%_0%,rgba(255,255,255,.06),transparent_55%)]" />
           </div>
 
           <div className="relative z-[1] flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-            {/* Kiri: logo + brand */}
-            <div className="flex min-w-0 items-center rounded-full gap-4">
+            {/* Kiri: logo bulat + brand */}
+            <div className="flex min-w-0 items-center gap-4">
               <span
                 className={[
-                  "relative grid h-12 w-12 place-items-center rounded-full",
-                  "border border-white/20 bg-white/10",
+                  "relative border border-white/20 bg-white/10",
+                  "rounded-full overflow-hidden aspect-square",
+                  "h-11 w-11 sm:h-12 sm:w-12", // ukuran responsif
+                  "grid place-items-center",
                 ].join(" ")}
                 aria-hidden="true"
               >
                 {logoSrc ? (
                   <img
                     src={logoSrc}
-                    alt=""
-                    className="h-9 w-9 object-contain drop-shadow"
+                    alt="Logo"
+                    className="h-full w-full object-contain p-1.5"
                   />
                 ) : (
                   <span className="h-3 w-3 rounded-full bg-[color:var(--primary)] shadow-[0_0_28px_rgba(138,180,255,.9)]" />
                 )}
-
-                {/* ring glare */}
                 <span className="pointer-events-none absolute inset-0 rounded-full ring-1 ring-white/20" />
                 <span className="pointer-events-none absolute -inset-px rounded-full [background:linear-gradient(180deg,rgba(255,255,255,.22),transparent_40%)]" />
               </span>
@@ -74,7 +73,7 @@ const Footer: React.FC<FooterProps> = ({
               <div className="min-w-0">
                 <p
                   id="footer-brand"
-                  className="text-[11px] uppercase tracking-[0.32em] text-white/55"
+                  className="text-[10px] uppercase tracking-[0.32em] text-white/85"
                 >
                   {brand}
                 </p>
@@ -96,7 +95,7 @@ const Footer: React.FC<FooterProps> = ({
               />
             </div>
 
-            {/* Kanan: tautan + aksi */}
+            {/* Kanan: tautan & aksi */}
             <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-end">
               <ul className="flex flex-wrap items-center gap-3 text-sm text-white/85">
                 {links.map((l) => (
@@ -133,10 +132,10 @@ const Footer: React.FC<FooterProps> = ({
             </div>
           </div>
 
-          {/* Garis pemisah + catatan */}
+          {/* catatan */}
           <div className="relative z-[1] mt-6 border-t border-white/10 pt-3 text-center text-[11px] text-white/55">
-            © {new Date().getFullYear()} • By Rifky Septiana Rizki •
-            220660121019 • Lisensi MIT
+            © {new Date().getFullYear()} Rifky Septiana Rizki — Semua hak cipta
+            dilindungi.
           </div>
         </section>
       </div>
@@ -166,7 +165,6 @@ const StatPill = ({
       className,
     ].join(" ")}
   >
-    {/* garis glare atas kecil */}
     <span className="pointer-events-none absolute inset-x-3 top-0 h-px bg-white/25" />
     <div className="text-[11px] uppercase tracking-widest text-white/55">
       {label}
@@ -184,5 +182,5 @@ const StatPill = ({
   </div>
 );
 
-/* ---------- util kecil ---------- */
+/* ---------- util ---------- */
 const formatInt = (n: number) => new Intl.NumberFormat("id-ID").format(n);

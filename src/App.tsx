@@ -14,7 +14,7 @@ import MapView from "./components/map/MapView";
 import Loading from "./components/Loading";
 import ErrorBoundary from "./components/ErrorBoundary";
 import Footer from "./components/Footer";
-import RightEdgeToggle from "./components/RightEdgeToggle"; // ⬅️ BARU
+import DataTable from "./components/table/DataTable";
 import { applyFilters, loadData } from "./lib/data";
 import { createDefaultFilters, Filters, Row } from "./lib/types";
 import myLogo from "../assets/RALogo.png";
@@ -27,7 +27,7 @@ const App: React.FC = () => {
   const [filters, setFilters] = useState<Filters>(() => createDefaultFilters());
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [panelOpen, setPanelOpen] = useState(false); // ⬅️ state panel
+  const [panelOpen, setPanelOpen] = useState(false);
 
   useEffect(() => {
     let subscribed = true;
@@ -160,6 +160,7 @@ const App: React.FC = () => {
                   </div>
 
                   <MapView rows={filteredRows} />
+                  <DataTable rows={filteredRows} initialPageSize={10} />
                 </>
               )}
             </main>
