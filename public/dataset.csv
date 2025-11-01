@@ -1,0 +1,83 @@
+id_insiden,tanggal_insiden,tahun,tahun_akademik,semester,provinsi,lat,lon,sektor_pendidikan,kategori_besar,jenis_insiden,lokasi,peran_pelaku,tingkat_keparahan,status_kasus,waktu_respon_jam,hari_penyelesaian,catatan
+26,2023-08-03,2023,2023/2024,Ganjil,Sulawesi Selatan,-5.147665,119.432732,Politeknik,Kekerasan seksual,Pemaksaan hubungan,Area parkir,Staf,5,Proses internal,64,7,Sesi konseling selesai
+20,2025-07-25,2025,2024/2025,Genap,Jawa Barat,-6.914744,107.60981,Institut,Kekerasan seksual,Pelecehan verbal,Ruang Kuliah,Anggota organisasi,3,Selesai,16,9,Koordinasi dengan pihak keamanan kampus
+41,2024-07-02,2024,2023/2024,Genap,Sumatera Barat,-0.947083,100.417183,Universitas,Non-seksual,Perundungan,Kantin,Teman sekelas,5,Proses hukum,72,35,Pendampingan psikologis sedang berlangsung
+62,2025-06-16,2025,2024/2025,Genap,DI Yogyakarta,-7.797068,110.370529,Akademi,Non-seksual,Kekerasan fisik,Platform pembelajaran,Teman sekelas,3,Laporan awal,6,5,Mediasi kampus dan perjanjian damai
+81,2024-05-25,2024,2023/2024,Genap,Jawa Barat,-6.914744,107.60981,Institut,Non-seksual,Perundungan,Area parkir,Teman sekelas,4,Selesai,15,30,Dalam pengawasan pihak berwenang
+25,2023-11-04,2023,2023/2024,Ganjil,Sumatera Utara,3.595196,98.672226,Institut,Kekerasan seksual,Pemaksaan hubungan,Platform pembelajaran,Staf,2,Tindak lanjut,9,17,Telah dijadwalkan sidang etik
+30,2024-04-24,2024,2023/2024,Genap,Bali,-8.409518,115.188919,Politeknik,Kekerasan seksual,Intimidasi seksual,Area parkir,Staf,2,Proses internal,40,17,Menunggu laporan resmi tambahan
+8,2025-04-15,2025,2024/2025,Genap,Banten,-6.12,106.15,Akademi,Kekerasan seksual,Sextortion,Asrama Mahasiswa,Mahasiswa,4,Proses hukum,85,58,Sesi konseling selesai
+24,2024-11-16,2024,2024/2025,Ganjil,Sumatera Utara,3.595196,98.672226,Universitas,Kekerasan seksual,Pemaksaan hubungan,Aula,Dosen,1,Proses internal,71,29,Pendampingan psikologis sedang berlangsung
+1,2025-05-16,2025,2024/2025,Genap,DI Yogyakarta,-7.797068,110.370529,Universitas,Kekerasan seksual,Sextortion,Area parkir,Mahasiswa,2,Selesai,7,22,Mediasi kampus dan perjanjian damai
+9,2025-07-02,2025,2024/2025,Genap,Kalimantan Timur,-0.502106,117.153709,Universitas,Kekerasan seksual,Intimidasi seksual,Ruang Kuliah,Anggota organisasi,3,Proses hukum,12,27,Menunggu laporan resmi tambahan
+7,2023-11-12,2023,2023/2024,Ganjil,Sulawesi Selatan,-5.147665,119.432732,Politeknik,Kekerasan seksual,Pemaksaan hubungan,Kantin,Mahasiswa,3,Proses hukum,89,31,Mediasi kampus dan perjanjian damai
+19,2024-04-10,2024,2023/2024,Genap,Sumatera Utara,3.595196,98.672226,Universitas,Kekerasan seksual,Pencabulan,Ruang Kuliah,Satpam,5,Selesai,15,1,Mediasi kampus dan perjanjian damai
+43,2024-10-20,2024,2024/2025,Ganjil,NTT,-10.17876,123.597,Universitas,Non-seksual,Tawuran antar organisasi,Asrama Mahasiswa,Senior,1,Proses internal,2,19,Sesi konseling selesai
+5,2024-07-18,2024,2023/2024,Genap,Sumatera Barat,-0.947083,100.417183,Universitas,Kekerasan seksual,Sextortion,Platform pembelajaran,Satpam,1,Tindak lanjut,50,12,Dalam pengawasan pihak berwenang
+45,2025-01-01,2025,2024/2025,Ganjil,Riau,0.507068,101.447777,Sekolah Tinggi,Non-seksual,Perundungan,Gerbang Kampus,Teman sekelas,3,Proses internal,26,16,Telah dijadwalkan sidang etik
+48,2024-05-17,2024,2023/2024,Genap,NTT,-10.17876,123.597,Akademi,Non-seksual,Perundungan,Perpustakaan,Anggota organisasi,2,Proses internal,30,28,Sesi konseling selesai
+59,2023-10-25,2023,2023/2024,Ganjil,Sulawesi Utara,1.47483,124.842079,Institut,Non-seksual,Tawuran antar organisasi,Laboratorium,Dosen,3,Proses hukum,31,43,Menunggu laporan resmi tambahan
+53,2024-04-22,2024,2023/2024,Genap,Sumatera Utara,3.595196,98.672226,Politeknik,Non-seksual,Vandalisme,Platform pembelajaran,Teman sekelas,2,Selesai,5,23,Dalam pengawasan pihak berwenang
+51,2024-01-28,2024,2023/2024,Ganjil,NTT,-10.17876,123.597,Sekolah Tinggi,Non-seksual,Bullying daring,Aula,Mahasiswa,1,Proses hukum,63,56,Menunggu laporan resmi tambahan
+13,2025-02-17,2025,2024/2025,Genap,DKI Jakarta,-6.2,106.816666,Universitas,Kekerasan seksual,Sextortion,Aula,Anggota organisasi,3,Laporan awal,11,1,Dalam pengawasan pihak berwenang
+36,2025-02-25,2025,2024/2025,Genap,DKI Jakarta,-6.2,106.816666,Universitas,Kekerasan seksual,Pelecehan verbal,Laboratorium,Satpam,1,Laporan awal,19,5,Laporan diteruskan ke unit etik
+10,2024-03-05,2024,2023/2024,Genap,NTB,-8.583333,116.116667,Sekolah Tinggi,Kekerasan seksual,Sextortion,Platform pembelajaran,Mahasiswa,3,Selesai,48,18,Dalam pengawasan pihak berwenang
+76,2024-11-23,2024,2024/2025,Ganjil,NTB,-8.583333,116.116667,Sekolah Tinggi,Non-seksual,Perundungan,Laboratorium,Dosen,3,Tindak lanjut,63,14,Mediasi kampus dan perjanjian damai
+72,2024-10-09,2024,2024/2025,Ganjil,Lampung,-5.429739,105.262482,Politeknik,Non-seksual,Perundungan,Platform pembelajaran,Senior,3,Selesai,8,24,Sesi konseling selesai
+14,2024-10-19,2024,2024/2025,Ganjil,Banten,-6.12,106.15,Sekolah Tinggi,Kekerasan seksual,Pelecehan verbal,Area parkir,Satpam,2,Proses internal,15,30,Dalam pengawasan pihak berwenang
+67,2025-04-22,2025,2024/2025,Genap,Lampung,-5.429739,105.262482,Sekolah Tinggi,Non-seksual,Tawuran antar organisasi,Gerbang Kampus,Anggota organisasi,5,Selesai,16,27,Mediasi kampus dan perjanjian damai
+79,2024-06-08,2024,2023/2024,Genap,Jawa Barat,-6.914744,107.60981,Akademi,Non-seksual,Perusakan fasilitas,Perpustakaan,Anggota organisasi,2,Proses internal,35,24,Mediasi kampus dan perjanjian damai
+63,2025-10-05,2025,2025/2026,Ganjil,Banten,-6.12,106.15,Politeknik,Non-seksual,Bullying daring,Ruang Kuliah,Senior,5,Proses internal,50,15,Sesi konseling selesai
+4,2025-07-15,2025,2024/2025,Genap,Sulawesi Utara,1.47483,124.842079,Politeknik,Kekerasan seksual,Pencabulan,Laboratorium,Mahasiswa,3,Selesai,25,4,Menunggu laporan resmi tambahan
+33,2025-06-10,2025,2024/2025,Genap,DI Yogyakarta,-7.797068,110.370529,Institut,Kekerasan seksual,Pencabulan,Perpustakaan,Dosen,5,Selesai,19,20,Sesi konseling selesai
+21,2024-03-07,2024,2023/2024,Genap,Lampung,-5.429739,105.262482,Institut,Kekerasan seksual,Sextortion,Platform pembelajaran,Mahasiswa,4,Laporan awal,7,1,Mediasi kampus dan perjanjian damai
+82,2025-10-15,2025,2025/2026,Ganjil,Bali,-8.409518,115.188919,Sekolah Tinggi,Non-seksual,Bullying daring,Aula,Mahasiswa,2,Tindak lanjut,20,11,Pendampingan psikologis sedang berlangsung
+27,2024-05-30,2024,2023/2024,Genap,Bali,-8.409518,115.188919,Universitas,Kekerasan seksual,Eksploitasi seksual,Aula,Dosen,3,Selesai,38,16,Laporan diteruskan ke unit etik
+23,2025-08-15,2025,2025/2026,Ganjil,Kalimantan Timur,-0.502106,117.153709,Universitas,Kekerasan seksual,Intimidasi seksual,Asrama Mahasiswa,Mahasiswa,5,Proses hukum,58,25,Dalam pengawasan pihak berwenang
+46,2025-06-24,2025,2024/2025,Genap,Banten,-6.12,106.15,Akademi,Non-seksual,Vandalisme,Area parkir,Staf,5,Laporan awal,10,3,Sesi konseling selesai
+75,2023-09-16,2023,2023/2024,Ganjil,Jawa Barat,-6.914744,107.60981,Akademi,Non-seksual,Perundungan,Laboratorium,Teman sekelas,4,Selesai,1,19,Dalam pengawasan pihak berwenang
+32,2023-10-10,2023,2023/2024,Ganjil,Sumatera Utara,3.595196,98.672226,Politeknik,Kekerasan seksual,Pencabulan,Laboratorium,Staf,5,Proses internal,69,3,Dalam pengawasan pihak berwenang
+28,2023-09-28,2023,2023/2024,Ganjil,NTT,-10.17876,123.597,Universitas,Kekerasan seksual,Intimidasi seksual,Perpustakaan,Satpam,1,Proses internal,32,15,Mediasi kampus dan perjanjian damai
+68,2024-05-12,2024,2023/2024,Genap,Papua,-2.591602,140.669006,Institut,Non-seksual,Tawuran antar organisasi,Gerbang Kampus,Senior,1,Proses hukum,45,25,Koordinasi dengan pihak keamanan kampus
+47,2024-10-14,2024,2024/2025,Ganjil,Kalimantan Timur,-0.502106,117.153709,Sekolah Tinggi,Non-seksual,Tawuran antar organisasi,Platform pembelajaran,Teman sekelas,2,Proses internal,23,24,Mediasi kampus dan perjanjian damai
+50,2025-08-05,2025,2025/2026,Ganjil,Sulawesi Selatan,-5.147665,119.432732,Sekolah Tinggi,Non-seksual,Tawuran antar organisasi,Asrama Mahasiswa,Mahasiswa,1,Tindak lanjut,15,34,Sesi konseling selesai
+29,2025-03-06,2025,2024/2025,Genap,Sumatera Utara,3.595196,98.672226,Akademi,Kekerasan seksual,Eksploitasi seksual,Ruang Kuliah,Satpam,1,Proses hukum,78,50,Menunggu laporan resmi tambahan
+69,2024-03-05,2024,2023/2024,Genap,Kalimantan Selatan,-3.319437,114.590111,Politeknik,Non-seksual,Perundungan,Area parkir,Satpam,3,Proses internal,68,9,Mediasi kampus dan perjanjian damai
+34,2025-08-04,2025,2025/2026,Ganjil,Kalimantan Timur,-0.502106,117.153709,Institut,Kekerasan seksual,Sextortion,Area parkir,Satpam,4,Selesai,4,3,Telah dijadwalkan sidang etik
+31,2025-09-08,2025,2025/2026,Ganjil,Jawa Tengah,-7.005145,110.438125,Universitas,Kekerasan seksual,Pemaksaan hubungan,Perpustakaan,Dosen,5,Selesai,17,5,Menunggu laporan resmi tambahan
+12,2023-11-21,2023,2023/2024,Ganjil,Jawa Timur,-7.257472,112.75209,Institut,Kekerasan seksual,Sextortion,Gerbang Kampus,Satpam,1,Proses hukum,80,43,Dalam pengawasan pihak berwenang
+3,2025-08-03,2025,2025/2026,Ganjil,Lampung,-5.429739,105.262482,Sekolah Tinggi,Kekerasan seksual,Intimidasi seksual,Platform pembelajaran,Satpam,3,Laporan awal,1,7,Laporan diteruskan ke unit etik
+55,2025-07-24,2025,2024/2025,Genap,Bali,-8.409518,115.188919,Universitas,Non-seksual,Tawuran antar organisasi,Gerbang Kampus,Senior,5,Proses hukum,11,27,Telah dijadwalkan sidang etik
+18,2024-03-04,2024,2023/2024,Genap,Lampung,-5.429739,105.262482,Institut,Kekerasan seksual,Sextortion,Area parkir,Staf,3,Proses hukum,70,42,Mediasi kampus dan perjanjian damai
+58,2025-06-15,2025,2024/2025,Genap,Sulawesi Selatan,-5.147665,119.432732,Institut,Non-seksual,Tawuran antar organisasi,Laboratorium,Satpam,5,Selesai,26,19,Pendampingan psikologis sedang berlangsung
+49,2023-12-29,2023,2023/2024,Ganjil,DKI Jakarta,-6.2,106.816666,Universitas,Non-seksual,Kekerasan fisik,Platform pembelajaran,Satpam,1,Proses hukum,84,50,Sesi konseling selesai
+61,2024-03-17,2024,2023/2024,Genap,Jawa Tengah,-7.005145,110.438125,Universitas,Non-seksual,Bullying daring,Asrama Mahasiswa,Mahasiswa,1,Proses internal,32,7,Koordinasi dengan pihak keamanan kampus
+38,2024-07-28,2024,2023/2024,Genap,Lampung,-5.429739,105.262482,Sekolah Tinggi,Kekerasan seksual,Eksploitasi seksual,Laboratorium,Mahasiswa,2,Tindak lanjut,24,33,Pendampingan psikologis sedang berlangsung
+78,2023-11-30,2023,2023/2024,Ganjil,Lampung,-5.429739,105.262482,Sekolah Tinggi,Non-seksual,Vandalisme,Asrama Mahasiswa,Anggota organisasi,5,Proses hukum,60,33,Telah dijadwalkan sidang etik
+71,2023-11-04,2023,2023/2024,Ganjil,Riau,0.507068,101.447777,Institut,Non-seksual,Tawuran antar organisasi,Asrama Mahasiswa,Senior,5,Proses hukum,74,47,Menunggu laporan resmi tambahan
+54,2024-03-28,2024,2023/2024,Genap,Sumatera Barat,-0.947083,100.417183,Politeknik,Non-seksual,Perundungan,Aula,Dosen,2,Selesai,25,23,Laporan diteruskan ke unit etik
+44,2024-08-07,2024,2024/2025,Ganjil,Sulawesi Utara,1.47483,124.842079,Universitas,Non-seksual,Perusakan fasilitas,Kantin,Satpam,3,Proses internal,17,26,Dalam pengawasan pihak berwenang
+15,2025-05-16,2025,2024/2025,Genap,NTT,-10.17876,123.597,Akademi,Kekerasan seksual,Intimidasi seksual,Laboratorium,Senior,2,Proses internal,69,3,Menunggu laporan resmi tambahan
+66,2024-12-14,2024,2024/2025,Ganjil,DI Yogyakarta,-7.797068,110.370529,Sekolah Tinggi,Non-seksual,Perundungan,Platform pembelajaran,Teman sekelas,2,Proses hukum,70,55,Dalam pengawasan pihak berwenang
+2,2025-03-27,2025,2024/2025,Genap,Sulawesi Utara,1.47483,124.842079,Universitas,Kekerasan seksual,Pelecehan verbal,Perpustakaan,Mahasiswa,2,Proses internal,5,20,Sesi konseling selesai
+17,2025-08-19,2025,2025/2026,Ganjil,NTB,-8.583333,116.116667,Universitas,Kekerasan seksual,Eksploitasi seksual,Laboratorium,Mahasiswa,4,Tindak lanjut,23,23,Telah dijadwalkan sidang etik
+74,2023-11-11,2023,2023/2024,Ganjil,Bali,-8.409518,115.188919,Politeknik,Non-seksual,Kekerasan fisik,Kantin,Mahasiswa,3,Selesai,35,5,Dalam pengawasan pihak berwenang
+42,2023-11-27,2023,2023/2024,Ganjil,Sumatera Barat,-0.947083,100.417183,Institut,Non-seksual,Vandalisme,Area parkir,Dosen,1,Proses internal,46,26,Menunggu laporan resmi tambahan
+56,2024-09-02,2024,2024/2025,Ganjil,DKI Jakarta,-6.2,106.816666,Akademi,Non-seksual,Tawuran antar organisasi,Platform pembelajaran,Dosen,3,Selesai,25,28,Telah dijadwalkan sidang etik
+6,2025-05-05,2025,2024/2025,Genap,Kalimantan Selatan,-3.319437,114.590111,Akademi,Kekerasan seksual,Intimidasi seksual,Perpustakaan,Dosen,2,Laporan awal,3,7,Sesi konseling selesai
+11,2025-09-03,2025,2025/2026,Ganjil,Sulawesi Utara,1.47483,124.842079,Akademi,Kekerasan seksual,Pemaksaan hubungan,Kantin,Mahasiswa,2,Proses internal,13,27,Pendampingan psikologis sedang berlangsung
+80,2024-01-08,2024,2023/2024,Ganjil,Sumatera Utara,3.595196,98.672226,Institut,Non-seksual,Vandalisme,Perpustakaan,Mahasiswa,1,Proses hukum,92,52,Koordinasi dengan pihak keamanan kampus
+64,2023-10-17,2023,2023/2024,Ganjil,Sumatera Utara,3.595196,98.672226,Universitas,Non-seksual,Perusakan fasilitas,Area parkir,Anggota organisasi,5,Laporan awal,19,7,Pendampingan psikologis sedang berlangsung
+70,2024-04-04,2024,2023/2024,Genap,Sulawesi Utara,1.47483,124.842079,Sekolah Tinggi,Non-seksual,Vandalisme,Asrama Mahasiswa,Teman sekelas,4,Proses internal,64,17,Pendampingan psikologis sedang berlangsung
+65,2024-07-21,2024,2023/2024,Genap,Lampung,-5.429739,105.262482,Sekolah Tinggi,Non-seksual,Perusakan fasilitas,Kantin,Dosen,5,Proses internal,3,30,Telah dijadwalkan sidang etik
+35,2024-05-10,2024,2023/2024,Genap,Jawa Barat,-6.914744,107.60981,Universitas,Kekerasan seksual,Pencabulan,Laboratorium,Teman sekelas,3,Selesai,29,18,Telah dijadwalkan sidang etik
+52,2025-09-12,2025,2025/2026,Ganjil,Papua,-2.591602,140.669006,Akademi,Non-seksual,Perusakan fasilitas,Aula,Staf,5,Proses hukum,24,44,Koordinasi dengan pihak keamanan kampus
+39,2024-01-31,2024,2023/2024,Ganjil,Kalimantan Timur,-0.502106,117.153709,Sekolah Tinggi,Kekerasan seksual,Sextortion,Asrama Mahasiswa,Senior,2,Laporan awal,4,4,Pendampingan psikologis sedang berlangsung
+60,2024-07-11,2024,2023/2024,Genap,Sulawesi Selatan,-5.147665,119.432732,Politeknik,Non-seksual,Tawuran antar organisasi,Area parkir,Anggota organisasi,1,Proses hukum,73,17,Menunggu laporan resmi tambahan
+16,2024-12-13,2024,2024/2025,Ganjil,DKI Jakarta,-6.2,106.816666,Universitas,Kekerasan seksual,Pencabulan,Area parkir,Mahasiswa,1,Selesai,37,3,Mediasi kampus dan perjanjian damai
+57,2025-02-02,2025,2024/2025,Genap,Lampung,-5.429739,105.262482,Akademi,Non-seksual,Kekerasan fisik,Platform pembelajaran,Mahasiswa,3,Proses hukum,7,38,Menunggu laporan resmi tambahan
+37,2024-10-14,2024,2024/2025,Ganjil,Jawa Timur,-7.257472,112.75209,Universitas,Kekerasan seksual,Pencabulan,Kantin,Anggota organisasi,1,Tindak lanjut,28,22,Mediasi kampus dan perjanjian damai
+73,2024-06-19,2024,2023/2024,Genap,DI Yogyakarta,-7.797068,110.370529,Akademi,Non-seksual,Perusakan fasilitas,Laboratorium,Mahasiswa,2,Proses internal,37,26,Dalam pengawasan pihak berwenang
+77,2024-09-14,2024,2024/2025,Ganjil,NTB,-8.583333,116.116667,Universitas,Non-seksual,Vandalisme,Ruang Kuliah,Mahasiswa,2,Laporan awal,10,1,Sesi konseling selesai
+40,2024-11-24,2024,2024/2025,Ganjil,Sumatera Utara,3.595196,98.672226,Institut,Kekerasan seksual,Pemaksaan hubungan,Kantin,Senior,2,Selesai,43,7,Telah dijadwalkan sidang etik
+22,2025-06-05,2025,2024/2025,Genap,Sulawesi Utara,1.47483,124.842079,Politeknik,Kekerasan seksual,Pemaksaan hubungan,Gerbang Kampus,Staf,1,Proses internal,14,4,Telah dijadwalkan sidang etik
