@@ -63,10 +63,10 @@ const Header: React.FC<HeaderProps> = ({
               </span>
 
               <div className="min-w-0 whitespace-nowrap mt-2">
-                <h1 className="inline-block mr-1.5 truncate align-baseline text-[18px] sm:text-xl md:text-xl font-extrabold text-primary">
+                <h1 className="inline-block mr-1.5 truncate align-baseline text-[17px] sm:text-xl md:text-xl font-extrabold text-primary">
                   SIGAP
                 </h1>
-                <h1 className="inline-block truncate align-baseline text-[18px] sm:text-xl md:text-xl font-extrabold text-white">
+                <h1 className="inline-block truncate align-baseline text-[17px] sm:text-xl md:text-xl font-extrabold text-white">
                   KAMPUS
                 </h1>
               </div>
@@ -74,16 +74,6 @@ const Header: React.FC<HeaderProps> = ({
 
             {/* KANAN: metrik & tombol Filter */}
             <div className="flex shrink-0 items-center gap-2 sm:gap-3">
-              <span
-                className="inline-flex items-center gap-2 rounded-full bg-white/8 px-3 py-1.5 text-xs text-white/80 border border-white/15"
-                title="Jumlah baris terlihat saat ini"
-                aria-label={`Total terlihat: ${fmtInt(totalVisible)}`}
-              >
-                <Sparkles className="h-4 w-4 opacity-90" />
-                <span className="tabular-nums">{fmtInt(totalVisible)}</span>
-                <span className="opacity-80 text-white">terlihat</span>
-              </span>
-
               <button
                 type="button"
                 onClick={onOpenFilters}

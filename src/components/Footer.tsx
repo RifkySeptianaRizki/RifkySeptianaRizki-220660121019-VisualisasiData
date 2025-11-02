@@ -1,4 +1,5 @@
 // FILE: src/components/Footer.tsx
+import React from "react";
 import { Github, Mail } from "lucide-react";
 
 type FooterLink = { label: string; href: string };
@@ -12,12 +13,38 @@ type FooterProps = {
   links?: FooterLink[];
 };
 
+/* Tombol ikon util-only, aman di iOS/production (tanpa .btn) */
+const IconLink: React.FC<React.ComponentProps<"a">> = ({
+  className = "",
+  children,
+  ...props
+}) => (
+  <a
+    {...props}
+    className={[
+      "inline-flex h-10 w-10 items-center justify-center rounded-full",
+      "border border-white/15 bg-white/10 text-white/80",
+      "hover:bg-white/18 hover:text-white",
+      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30",
+      // penting untuk iOS Safari agar tidak 'putih'
+      "[appearance:none] [-webkit-appearance:none] bg-clip-padding",
+      // jika ada overlay/glare, pastikan di atas
+      "relative z-10",
+      "transition-colors",
+      className,
+    ].join(" ")}
+    aria-current={undefined}
+  >
+    {children}
+  </a>
+);
+
 const Footer: React.FC<FooterProps> = ({
   totalAll,
   totalVisible,
   lastUpdated,
   logoSrc,
-  brand = "Sistem Informasi & Grafik Anti-Kekerasan",
+  brand = "Grafik Anti-Kekerasan",
   links = [
     {
       label: "Sumber Data",
@@ -52,7 +79,7 @@ const Footer: React.FC<FooterProps> = ({
                 className={[
                   "relative border border-white/20 bg-white/10",
                   "rounded-full overflow-hidden aspect-square",
-                  "h-11 w-11 sm:h-12 sm:w-12", // ukuran responsif
+                  "h-11 w-11 sm:h-12 sm:w-12",
                   "grid place-items-center",
                 ].join(" ")}
                 aria-hidden="true"
@@ -97,37 +124,40 @@ const Footer: React.FC<FooterProps> = ({
 
             {/* Kanan: tautan & aksi */}
             <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-end">
-              <ul className="flex flex-wrap items-center gap-3 text-sm text-white/85">
+              <ul className="flex flex-wrap items-center gap-3 text-sm text-primary font-bold">
                 {links.map((l) => (
                   <li key={l.label}>
                     <a
                       className="rounded-lg px-1.5 py-1 outline-none transition-colors hover:text-white hover:underline focus-visible:ring-2 focus-visible:ring-white/30"
                       href={l.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       {l.label}
                     </a>
                   </li>
                 ))}
               </ul>
+
+              {/* Aksi ikon */}
               <div className="flex items-center gap-2">
-                <a
+                <IconLink
                   href="mailto:rifkiseptianarizki@gmail.com"
-                  className="btn rounded-full px-3 py-2"
                   aria-label="Email"
                   title="Email"
                 >
-                  <Mail className="h-4 w-4" />
-                </a>
-                <a
+                  <Mail className="h-5 w-5" />
+                </IconLink>
+
+                <IconLink
                   href="https://github.com/RifkySeptianaRizki"
                   target="_blank"
-                  rel="noreferrer"
-                  className="btn rounded-full px-3 py-2"
+                  rel="noopener noreferrer"
                   aria-label="GitHub"
                   title="GitHub"
                 >
-                  <Github className="h-4 w-4" />
-                </a>
+                  <Github className="h-5 w-5" />
+                </IconLink>
               </div>
             </div>
           </div>
@@ -142,12 +172,12 @@ const Footer: React.FC<FooterProps> = ({
             <a
               href="https://github.com/RifkySeptianaRizki"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="underline decoration-white/30 underline-offset-2 hover:text-white hover:decoration-white"
             >
               GitHub
             </a>
-            <span className="block mt-1">
+            <span className="mt-1 block">
               Support by <span className="font-bold">Resilient Academia</span>
             </span>
           </div>

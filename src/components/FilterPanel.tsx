@@ -1,4 +1,4 @@
-// FILE: src/components/FilterPanel.tsx
+/* eslint-disable react/jsx-no-duplicate-props */
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { ChevronDown, Search, X } from "lucide-react";
 import type { Filters, Row } from "../lib/types";
@@ -21,18 +21,18 @@ const contains = (hay: string, needle: string) =>
 const isAllSelected = <T,>(cur: readonly T[], all: readonly T[]) =>
   all.length > 0 && cur.length === all.length;
 
-/* -------------------- tiny UI atoms -------------------- */
-const Pill: React.FC<{ children: React.ReactNode; className?: string }> = ({
-  children,
-  className = "",
-}) => (
-  <span
-    className={`pill px-3 py-1.5 text-[12px] leading-none bg-white/7 border border-white/12 ${className}`}
-  >
-    {children}
-  </span>
-);
+/* -------------------- tiny UI atoms (util-only) -------------------- */
+const pillCls =
+  "inline-flex items-center rounded-xl border border-white/12 " +
+  "bg-white/7 px-3 py-1.5 text-[12px] leading-none text-white/80";
 
+const chipBase =
+  "inline-flex items-center whitespace-nowrap rounded-xl border px-3 py-1.5 " +
+  "text-[12px] leading-none outline-none transition-colors " +
+  "focus-visible:ring-2 focus-visible:ring-white/25 " +
+  "appearance-none select-none";
+const chipIdle = "border-white/12 bg-white/7 text-white/80 hover:bg-white/10";
+const chipActive = "border-white/20 bg-white/20 text-white";
 const Chip: React.FC<{
   active?: boolean;
   children: React.ReactNode;
@@ -45,13 +45,50 @@ const Chip: React.FC<{
     onClick={onClick}
     role="switch"
     aria-checked={!!active}
-    className={`chip whitespace-nowrap ${active ? "chip-active" : ""}`}
+    className={`${chipBase} ${active ? chipActive : chipIdle}`}
   >
     {children}
   </button>
 );
 
+const GhostButton: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement>> = ({
+  className = "",
+  ...props
+}) => (
+  <button
+    type="button"
+    {...props}
+    className={
+      "rounded-xl border border-transparent px-2.5 py-1.5 text-xs " +
+      "text-white/70 hover:text-white hover:bg-white/10 hover:border-white/10 " +
+      "transition-colors " +
+      className
+    }
+  />
+);
+
+const TextInput: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = ({
+  className = "",
+  ...props
+}) => (
+  <input
+    {...props}
+    className={
+      "h-10 w-full rounded-xl border border-white/10 bg-white/5 " +
+      "px-3 text-[14px] text-white placeholder-white/40 outline-none " +
+      "focus:border-white/20 focus:ring-2 focus:ring-white/20 " +
+      "appearance-none " +
+      className
+    }
+  />
+);
+
 /* -------------------- generic section shells -------------------- */
+const Pill: React.FC<{ children: React.ReactNode; className?: string }> = ({
+  children,
+  className = "",
+}) => <span className={`${pillCls} ${className}`}>{children}</span>;
+
 const SectionShell: React.FC<{
   title: string;
   open: boolean;
@@ -72,7 +109,7 @@ const SectionShell: React.FC<{
   <details
     open={open}
     onToggle={(e) => onToggle((e.currentTarget as HTMLDetailsElement).open)}
-    className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur group"
+    className="group overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur"
   >
     <summary className="flex cursor-pointer items-center justify-between gap-3 px-4 py-3 font-semibold text-white hover:bg-white/5">
       <span>{title}</span>
@@ -143,28 +180,24 @@ const OptionSection: React.FC<{
       }
       toolbarRight={
         <>
-          <button className="btn-ghost" onClick={onSelectAll} disabled={allSel}>
+          <GhostButton onClick={onSelectAll} disabled={allSel}>
             Pilih semua
-          </button>
-          <button
-            className="btn-ghost"
-            onClick={onClear}
-            disabled={selected.length === 0}
-          >
+          </GhostButton>
+          <GhostButton onClick={onClear} disabled={selected.length === 0}>
             Bersihkan
-          </button>
+          </GhostButton>
         </>
       }
     >
       <div className="space-y-3">
         <label className="relative block">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-white/40" />
-          <input
-            className="input pl-9 pr-3 w-full"
+          <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white/40" />
+          <TextInput
             placeholder={placeholder}
             value={q}
             onChange={(e) => setQ(e.target.value)}
             aria-label={`Cari ${title}`}
+            className="pl-9 pr-3"
           />
         </label>
 
@@ -224,13 +257,12 @@ const RangeSection: React.FC<{
     onToggle={onToggleOpen}
     countLabel={`${valueMin}-${valueMax}`}
     toolbarRight={
-      <button
-        className="btn-ghost"
+      <GhostButton
         onClick={onReset}
         disabled={valueMin === min && valueMax === max}
       >
         Reset
-      </button>
+      </GhostButton>
     }
   >
     <div className="space-y-4">
@@ -243,7 +275,7 @@ const RangeSection: React.FC<{
           step={1}
           value={valueMin}
           onChange={(e) => onMin(Math.min(Number(e.target.value), valueMax))}
-          className="range"
+          className="w-full appearance-none accent-white/80"
           aria-label="Severity minimum"
         />
         <Pill className="w-min text-white">{valueMin}</Pill>
@@ -258,7 +290,7 @@ const RangeSection: React.FC<{
           step={1}
           value={valueMax}
           onChange={(e) => onMax(Math.max(Number(e.target.value), valueMin))}
-          className="range"
+          className="w-full appearance-none accent-white/80"
           aria-label="Severity maksimum"
         />
         <Pill className="w-min text-white">{valueMax}</Pill>
@@ -459,24 +491,26 @@ const FilterPanel: React.FC<Props> = ({
             Filter aktif
           </span>
           <div className="flex items-center gap-2">
-            <button className="btn-ghost" onClick={() => setAllSections(true)}>
+            <GhostButton onClick={() => setAllSections(true)}>
               Buka semua
-            </button>
-            <button className="btn-ghost" onClick={() => setAllSections(false)}>
+            </GhostButton>
+            <GhostButton onClick={() => setAllSections(false)}>
               Tutup semua
-            </button>
+            </GhostButton>
           </div>
         </div>
 
         <div className="flex gap-2 overflow-x-auto pb-1">
           {activeChips.length === 0 ? (
-            <span className="chip text-white/50">Tidak ada filter aktif</span>
+            <span className={`${chipBase} ${chipIdle}`}>
+              Tidak ada filter aktif
+            </span>
           ) : (
             activeChips.map((c) => (
               <button
                 key={c.key}
                 type="button"
-                className="chip chip-active whitespace-nowrap"
+                className={`${chipBase} ${chipActive} flex items-center`}
                 onClick={c.onRemove}
                 aria-label={`Hapus ${c.label}`}
               >
@@ -490,8 +524,7 @@ const FilterPanel: React.FC<Props> = ({
 
       <div className="flex items-center justify-between text-xs text-white/45">
         <span>{fmtInt(safeRows.length)} entri mentah.</span>
-        <button
-          className="btn-ghost"
+        <GhostButton
           onClick={() =>
             setFilters({
               sektor: [],
@@ -506,7 +539,7 @@ const FilterPanel: React.FC<Props> = ({
           }
         >
           Reset filter
-        </button>
+        </GhostButton>
       </div>
 
       <div className="space-y-4">
@@ -559,17 +592,16 @@ const FilterPanel: React.FC<Props> = ({
           onToggle={(o) => setOpen((p) => ({ ...p, kategori: o }))}
           countLabel={`${filters.kategori.length}/2`}
           toolbarRight={
-            <button
-              className="btn-ghost"
+            <GhostButton
               onClick={() => setFilters({ kategori: [] })}
               disabled={filters.kategori.length === 0}
             >
               Bersihkan
-            </button>
+            </GhostButton>
           }
         >
           <div className="flex flex-wrap gap-2">
-            {kategoriSegments.map((seg) => (
+            {(["Kekerasan seksual", "Non-seksual"] as const).map((seg) => (
               <Chip
                 key={seg}
                 active={filters.kategori.includes(seg)}
@@ -618,14 +650,14 @@ const FilterPanel: React.FC<Props> = ({
         >
           <div className="space-y-3">
             <label className="relative block">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-white/40" />
-              <input
+              <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white/40" />
+              <TextInput
                 type="search"
-                className="input w-full pl-9 pr-10"
                 placeholder="Cari jenis insiden, peran pelaku, atau lokasi…"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 aria-label="Cari insiden"
+                className="pl-9 pr-10"
               />
               {searchTerm && (
                 <button
