@@ -1,6 +1,6 @@
 # Campus Violence Dashboard — React + Vite + Tailwind + Recharts + Leaflet
 
-Dashboard interaktif dengan desain *liquid glass glossy* untuk mengeksplorasi dataset sintetis kekerasan di lingkungan pendidikan (20.000 baris, 2020–2024).
+Dashboard interaktif dengan desain *liquid glass glossy* untuk mengeksplorasi dataset sintetis kekerasan di lingkungan pendidikan (82 baris, 2020–2024).
 
 ## 1) Prasyarat
 - Node.js 18+ dan npm
@@ -32,7 +32,7 @@ npm run preview
 ```
 
 ## 4) Struktur
-- `public/dataset.csv` — dataset 20k baris (disalin dari file yang Anda kirim).
+- `public/dataset.csv` — dataset 82 baris (disalin dari file yang Anda kirim).
 - `src/lib/data.ts` — loader & helper filter.
 - `src/components/` — FilterPanel, StatCards, charts (Recharts), MapView (Leaflet).
 - `tailwind.config.js`, `src/index.css` — tema & gaya glassmorphism.
