@@ -32,7 +32,7 @@ npm run preview
 ```
 
 ## 4) Struktur
-- `public/dataset.csv` — dataset 82 baris (disalin dari file yang Anda kirim).
+- `public/dataset.csv` — dataset 82 baris.
 - `src/lib/data.ts` — loader & helper filter.
 - `src/components/` — FilterPanel, StatCards, charts (Recharts), MapView (Leaflet).
 - `tailwind.config.js`, `src/index.css` — tema & gaya glassmorphism.
